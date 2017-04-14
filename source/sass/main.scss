@@ -1,0 +1,7 @@
+// основной стилевой файл
+//@import "helpers/_normalize.scss";
+@import "helpers/_mixins.scss";
+@import "helpers/_settings.scss";
+@import "helpers/_general.scss";
+
+@import "../blocks/**/*.scss";

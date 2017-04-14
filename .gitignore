@@ -1,0 +1,5 @@
+*.pdf
+*.psd
+build/
+css/*.css
+node_modules/
