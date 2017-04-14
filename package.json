@@ -1,14 +1,22 @@
 {
   "name": "new",
   "version": "1.0.0",
-  "description": "",
+  "description": "new project",
   "main": "block.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "sergey",
   "license": "ISC",
   "devDependencies": {
     "gulp": "^3.9.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kasiopia/new.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Kasiopia/new/issues"
+  },
+  "homepage": "https://github.com/Kasiopia/new#readme"
 }

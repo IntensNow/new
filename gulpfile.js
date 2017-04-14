@@ -1,12 +1,14 @@
-const gulp = require("gulp");
-const sass = require("gulp-sass");
-const pug = require("gulp-pug");
+var gulp = require("gulp");
+var sass = require("gulp-sass");
+var pug = require("gulp-pug");
+var autoprefixer = require("autoprefixer");
+var postcss = require("postcss");
 
  	gulp.task("sass", function() {
 
- 		return gulp.src("./source/sass/main.scss")
+ 		return gulp.src("./source/sass/main.scss") // говорим какой файл взять
  			.pipe(sass())
- 			.pipe(gulp.dest("./public/css/"));
+ 			.pipe(gulp.dest("./public/css/")); //задаем папку куда вставлять 
 
  	});
 //пишем таск для работы со страницами
