@@ -1,8 +1,4 @@
-
-
-
-
-
+// создание блока набрать node block name
 'use strict';
 
 const fs = require('fs')

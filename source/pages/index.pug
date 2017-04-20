@@ -1,18 +1,17 @@
 extends layout/main.pug
 
 include ../blocks/header/header.pug
+include ../blocks/inner/inner.pug
 include ../blocks/footer/footer.pug
-include ../blocks/content/content.pug
-include ../blocks/side-menu/side-menu.pug
+
 
 block title
-	block Главная страница
+	title Название страницы
 
 block pagecontent
 	+header()
 
-	+side-menu()
-
-	+content()
+	+inner()
 
 	+footer()
+

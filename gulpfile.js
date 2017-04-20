@@ -1,13 +1,18 @@
-var gulp = require("gulp");
-var sass = require("gulp-sass");
-var pug = require("gulp-pug");
-var autoprefixer = require("autoprefixer");
-var postcss = require("postcss");
+ "use strict";
 
+const gulp = require("gulp");
+const sass = require("gulp-sass");
+const pug = require("gulp-pug");
+const autoprefixer = require("autoprefixer");
+const postcss = require("gulp-postcss");
+
+//cоздаем переменную с масивом всех плагинов Postccss который мы будем использовать, пока один autoprefixer будет 
+ 	let postplugins = [autoprefixer];
  	gulp.task("sass", function() {
 
  		return gulp.src("./source/sass/main.scss") // говорим какой файл взять
  			.pipe(sass())
+ 			.pipe(postcss(postplugins))  // передаем переменную postplugins 
  			.pipe(gulp.dest("./public/css/")); //задаем папку куда вставлять 
 
  	});
@@ -18,24 +23,12 @@ var postcss = require("postcss");
  			.pipe(gulp.dest("./public"));
 
  	});
-//определим ватчер и слежение за всем изминениями , и делаем слежку за всеми файлами во всех каталог и подкаталогах
- 	gulp.task("watch", function() {   
-// указываем какие Taski должны выполняться при изминении в этих файлах (в данном случае это "sass")
-		gulp.watch(["./source/sass/main.scss", "./source/**/*.scss"], ["sass"]);
+
+ 	gulp.task("watch", function() {   //определим ватчер и слежение за всем изминениями , и делаем слежку за всеми файлами во всех каталог и подкаталогах
+
+		gulp.watch(["./source/sass/main.scss", "./source/**/*.scss"], ["sass"]); // указываем какие Taski должны выполняться при изминении в этих файлах (в данном случае это "sass")
  		gulp.watch("./source/**/*.pug", ["pages"]);
  	});
-//определаем дефолтный таск и  укажем масив. То есть при определении таска, второим аругментов может быть не только callback который выполняет все задачи, но и масивы с названиями тасков - styles and watch. При запуске gulp выполнит команду(таск) default, который выполнит styles  and watch
- 	gulp.task("default", ["pages","sass", "watch"]);
 
+ 	gulp.task("default", ["pages","sass", "watch"]); //определаем дефолтный таск и  укажем масив. То есть при определении таска, вторым аругментов может быть не только callback который выполняет все задачи, но и масивы с названиями тасков - styles and watch. При запуске gulp выполнит команду(таск) default, который выполнит styles  and watch
 
-// const gulp = require("gulp");
-// const sass = require("gulp-sass");
-// const pug = require("gulp-pug");
-
-// 	gulp.task("styles", function() {
-
-// 		return gulp.src("./source/sass/main.scss")
-// 			.pipe(sass())
-// 			.pipe(gulp.dest("./public/css/"));
-
-// 	});
