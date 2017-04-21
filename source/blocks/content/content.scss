@@ -1,6 +1,10 @@
 .content {
-	display: block;
+	display: flex;
 	width: 70%;
+	height: 80vh;
+	align-items: center;
+	justify-content: center;
 	background: yellow;
-	height: 100%;
+	font-size: 20px;
+	line-height: 20px;
 }
