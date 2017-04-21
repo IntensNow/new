@@ -11,20 +11,14 @@ var minify = require("gulp-csso");
 
 //cоздаем переменную с масивом всех плагинов Postccss который мы будем использовать, пока один autoprefixer будет 
 	let postplugins = [
-		autoprefixer({browsers: [
-			"last 1 version",
-			"last 2 Chrome versions",
-			"last 2 Firefox versions",
-			"last 2 Opera versions",
-			"last 2 Edge versions"
-			]})
+		autoprefixer({
+			browsers: ["last 3 versions"]})  // поддержка последних трех версий всех браузеров
 		];
-	gulp.task("sass", function() {
 
-		return gulp.src("./source/sass/main.scss") // говорим какой файл взять
-			.pipe(sass())
+	gulp.task("styles", function() {
+		gulp.src("./source/sass/main.scss") // говорим какой файл взять
 			.pipe(plumber())   //не обрывается при ошибках
-			.pipe(sass({errLogToConsole: true}))  // выделение цветов ошибки, если есть, пока чет не пашет
+			.pipe(sass())  // запускаем плагин
 			.pipe(postcss(postplugins))  // передаем переменную postplugins 
 			.pipe(gulp.dest("./public/css/")) //задаем папку куда вставлять 
 			.pipe(browserSync.reload({stream: true}));
@@ -47,18 +41,17 @@ var minify = require("gulp-csso");
 		})
 	});
 
-	gulp.task('mincss', function(){
+	gulp.task('mincss', function(){  // пока не подключил
 		return gulp.src(paths.css)
-			.pipe(sass().on('error', sass.logError))
 			.pipe(minify())
 			.pipe(gulp.dest('main'))
 			.pipe(reload({stream:true}));
 	});
 
-	gulp.task("watch", ["browser-sync", "pages", "sass"], function() {   //определим ватчер и слежение за всем изминениями , и делаем слежку за всеми файлами во всех каталог и подкаталогах
+	gulp.task("watch", ["browser-sync"], function() {   //определим ватчер и слежение за всем изминениями , и делаем слежку за всеми файлами во всех каталог и подкаталогах
 
-		gulp.watch(["./source/sass/main.scss", "./source/**/*.scss"], ["sass"]); // указываем какие Taski должны выполняться при изминении в этих файлах (в данном случае это "sass")
+		gulp.watch(["./source/sass/main.scss", "./source/**/*.scss"], ["styles"]); // указываем какие Taski должны выполняться при изминении в этих файлах (в данном случае это "styles")
 		gulp.watch("./source/**/*.pug", ["pages"]);
 	});
 
-	gulp.task("default", ["pages","sass", "watch"]); //определаем дефолтный таск и  укажем масив. То есть при определении таска, вторым аругментов может быть не только callback который выполняет все задачи, но и масивы с названиями тасков - styles and watch. При запуске gulp выполнит команду(таск) default, который выполнит styles  and watch
+	gulp.task("public", ["pages","styles", "watch"]); //определаем дефолтный таск и  укажем масив. То есть при определении таска, вторым аругментов может быть не только callback который выполняет все задачи, но и масивы с названиями тасков - styles and watch. При запуске gulp выполнит команду(таск) default, который выполнит styles  and watch

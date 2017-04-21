@@ -374,18 +374,25 @@ html {
   line-height: 0px; }
 
 .header {
+  display: -ms-flexbox;
   display: flex;
   width: 100vw;
   height: 10vh;
-  background: red;
-  align-items: center;
-  justify-content: space-around;
-  flex-direction: row; }
+  background: gray;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-direction: row;
+      flex-direction: row; }
 
 .main-nav {
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   width: 100%; }
 
 .main-nav__item {
@@ -398,40 +405,53 @@ html {
   line-height: 20px; }
 
 .content {
+  display: -ms-flexbox;
   display: flex;
   width: 70%;
   height: 80vh;
-  align-items: center;
-  justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
   background: yellow;
   font-size: 20px;
   line-height: 20px; }
 
 .footer {
+  display: -ms-flexbox;
   display: flex;
   width: 100vw;
   height: 10vh;
-  align-items: center;
-  justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
   background: gray;
   font-size: 20px;
   line-height: 20px; }
 
 .side-menu {
+  display: -ms-flexbox;
   display: flex;
   width: 20%;
   height: 80vh;
-  align-items: center;
-  justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
   background: orange;
   font-size: 20px;
   line-height: 20px; }
 
 .inner {
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: space-between;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
   width: 100vw;
   height: 80vh;
   background: green; }
