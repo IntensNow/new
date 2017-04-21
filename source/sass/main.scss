@@ -1,10 +1,8 @@
-// основной стилевой файл
-// @import "helpers/_normalize.scss";
+@import "helpers/_normalize.scss";
 @import "helpers/_mixins.scss";
 @import "helpers/_settings.scss";
 @import "helpers/_general.scss";
 
-// блоки по БЭМ
 @import "../blocks/header/header.scss";
 @import "../blocks/content/content.scss";
 @import "../blocks/footer/footer.scss";
