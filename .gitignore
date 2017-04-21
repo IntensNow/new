@@ -1,5 +1,5 @@
 *.pdf
 *.psd
-build/
+public/
 css/*.css
 node_modules/
